@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
 import { HiShoppingCart } from 'react-icons/hi'
+import { useCartContext } from "../context/CartContext"
  
 const NavBar: React.FC = (): JSX.Element => {
+
+    const {cartQty} = useCartContext()
+
   return (
     <div className="w-full flex justify-between py-4">
         <h1 className="font-black text-slate-600 text-2xl">
@@ -22,7 +26,7 @@ const NavBar: React.FC = (): JSX.Element => {
         </nav>
         <div className="relative">
             <HiShoppingCart size={30} className="text-slate-600" />  
-            <div className="bg-orange-400 text-white rounded-full absolute -bottom-1 -left-1 w-5 h-5 text-xs font-bold flex items-center justify-center">3</div> 
+            <div className="bg-orange-400 text-white rounded-full absolute -bottom-1 -left-1 w-5 h-5 text-xs font-bold flex items-center justify-center">{cartQty}</div> 
         </div>
     </div>
   )
